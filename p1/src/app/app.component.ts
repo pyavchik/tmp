@@ -6,27 +6,46 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  useLetters = true;
-  useNumbers = true;
-  useSymbols = true;
-  generatedPassword = '';
+  password: string;
+  includeLetters = true;
+  includeNumbers = true;
+  includeSymbols = true;
+  length: number;
 
-  generatePass() {
-    console.log(this.useLetters);
-    console.log(this.useNumbers);
-    console.log(this.useSymbols);
-    this.generatedPassword = "PASSWORD"
+
+  generatePassButtonClick() {
+    const numbers = '1234567890';
+    const letters = 'abcdefghijklmnopqrstuvwyzABCDEFGHIJKLMNOPQRSTUVWYZ';
+    const symbols = '!@#$%^&*()-+{}[]';
+
+    let validChars = '';
+    if (this.includeLetters) {
+      validChars += letters;
+    }
+    if (this.includeNumbers) {
+      validChars += numbers;
+    }
+    if (this.includeSymbols) {
+      validChars += symbols;
+    }
+
+    let generatedPassword = '';
+    for (let i = 0; i < this.length; i++) {
+      const index = Math.floor(Math.random() * validChars.length);
+      generatedPassword += validChars[index];
+    }
+    this.password = generatedPassword;
   }
 
   useLettersForPass() {
-    this.useLetters = !this.useLetters;
+    this.includeLetters = !this.includeLetters;
   }
 
   useNumbersForPass() {
-    this.useNumbers = !this.useNumbers;
+    this.includeNumbers = !this.includeNumbers;
   }
 
   useSymbolsForPass() {
-    this.useSymbols = !this.useSymbols;
+    this.includeSymbols = !this.includeSymbols;
   }
 }
