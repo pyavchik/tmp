@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,12 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  password: string;
-  includeLetters = true;
-  includeNumbers = true;
-  includeSymbols = true;
+  password: string
+  includeLetters: boolean;
+  includeNumbers: boolean;
+  includeSymbols: boolean;
   length: number;
 
+
+  constructor() {
+    this.password = '';
+    this.includeLetters = true;
+    this.includeNumbers = true;
+    this.includeSymbols = true;
+    this.length = 10;
+  }
 
   generatePassButtonClick() {
     const numbers = '1234567890';
@@ -47,5 +55,12 @@ export class AppComponent {
 
   useSymbolsForPass() {
     this.includeSymbols = !this.includeSymbols;
+  }
+
+  onChangeLength(event) {
+    const parsedValue = parseInt(event.target.value);
+    if (!isNaN(parsedValue)) {
+      this.length = parsedValue;
+    }
   }
 }

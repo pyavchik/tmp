@@ -3,7 +3,8 @@
 </div>
 <div>
   <label>Length</label>
-  <input type="number">
+  <input type=""
+   (input)="onChangeLength($event)">
 </div>
 <div>
   <label>Letters</label>
@@ -32,3 +33,5 @@
     type="text"
     [value]="password">
 </div>
+
+{{password}}
