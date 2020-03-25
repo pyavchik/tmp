@@ -11,8 +11,11 @@ export class AppComponent {
   useSymbols = true;
   useNumbers = true;
 
-
   generatePass() {
-    this.password = 'NewPass';
+    
+  }
+
+  onLengthChange(event) {
+    this.password = event.target.value;
   }
 }
