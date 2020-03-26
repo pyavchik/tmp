@@ -1,0 +1,22 @@
+<h1>Password Generator</h1>
+<div>
+  <label for="">Length</label>
+  <input type="number">
+</div>
+<div>
+  <label for="">Use Letters</label>
+  <input type="checkbox">
+</div>
+<div>
+  <label for="">Use Symbols</label>
+  <input type="checkbox">
+</div>
+<div>
+  <label for="">Use Numbers</label>
+  <input type="checkbox">
+</div>
+<button (click)="onButtonClick()">Generate Password</button>
+<div>
+  <label for="">Your Password</label>
+  <input type="text" [value]="getPassword()">
+</div>
