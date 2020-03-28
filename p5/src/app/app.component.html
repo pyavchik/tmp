@@ -1,19 +1,19 @@
 <h1>Password Generator</h1>
 <div>
   <label for="">Length</label>
-  <input type="text">
+  <input type="text" >
 </div>
 <div>
   <label for="">Use Letters</label>
-  <input type="checkbox">
+  <input type="checkbox" (change)="onUseLettersChange()">
 </div>
 <div>
   <label for="">Use Numbers</label>
-  <input type="checkbox">
+  <input type="checkbox" (change)="onUseNumbersChange()">
 </div>
 <div>
   <label for="">Use Symbols</label>
-  <input type="checkbox">
+  <input type="checkbox" (change)="onUseSymbolsChange()">
 </div>
 <div>
   <button (click)="onButtonClick()">Generate</button>
@@ -21,4 +21,13 @@
 <div>
   <label for="">Generated Password</label>
   <input type="text" [value]="getPassword()">
+</div>
+<div>
+  {{useLetters}}
+</div>
+<div>
+  {{useNumbers}}
+</div>
+<div>
+  {{useSymbols}}
 </div>
