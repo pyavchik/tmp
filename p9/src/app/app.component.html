@@ -1,0 +1,20 @@
+<h1>Password Generator</h1>
+<div>
+  <label for="">Password Length</label>
+  <input type="text">
+</div>
+<div>
+  <label for="">Use Letters</label>
+  <input type="text">
+</div>
+<div>
+  <label for="">Use Symbols</label>
+  <input type="text">
+</div>
+<div>
+  <label for="">Use Numbers</label>
+  <input type="text">
+</div>
+<button (click)="onButtonClick()">Generate Password</button>
+<input type="text" [value]="password">
+{{password}}
