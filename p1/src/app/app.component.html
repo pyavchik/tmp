@@ -11,21 +11,21 @@
   <input
     type="checkbox"
     checked="checked"
-    (click)="useLettersForPass()">
+    (change)="useLettersForPass()">
 </div>
 <div>
   <label>Numbers</label>
   <input
     type="checkbox"
     checked="checked"
-    (click)="useNumbersForPass()">
+    (change)="useNumbersForPass()">
 </div>
 <div>
   <label>Symbols</label>
   <input
     type="checkbox"
     checked="checked"
-    (click)="useSymbolsForPass()">
+    (change)="useSymbolsForPass()">
 </div>
 <div>
   <button (click)="generatePassButtonClick()">Generate</button>
@@ -35,3 +35,7 @@
 </div>
 
 {{password}}
+{{includeLetters}}
+{{includeNumbers}}
+{{includeSymbols}}
+{{length}}
