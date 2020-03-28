@@ -6,17 +6,22 @@
 </div>
 <div>
   <label>Use Letters</label>
-  <input type="checkbox">
+  <input type="checkbox" (change)="onUseLetters()">
 </div>
 <div>
   <label>Use Symbols</label>
-  <input type="checkbox">
+  <input type="checkbox" (change)="onUseSymbols()">
 </div>
 <div>
   <label>Use Numbers</label>
-  <input type="checkbox">
+  <input type="checkbox" (change)="onUseNumber()">
 </div>
 <div>
   <button (click)="generatePass()">Generate</button>
-  <input type="text" [value]="password">
+</div>
+<input type="text" [value]="password">
+<div>
+  {{useLetters}}
+  {{useSymbols}}
+  {{useNumbers}}
 </div>
