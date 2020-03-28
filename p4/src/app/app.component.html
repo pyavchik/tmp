@@ -5,18 +5,22 @@
 </div>
 <div>
   <label>Letters</label>
-  <input type="checkbox">
+  <input type="checkbox" (change)="onLettersChanged()">
 </div>
 <div>
   <label>Numbers</label>
-  <input type="checkbox">
+  <input type="checkbox" (change)="onNumbersChanged()">
 </div>
 <div>
   <label>Symbols</label>
-  <input type="checkbox">
+  <input type="checkbox" (change)="onSymbolsChanged()">
 </div>
 <button (click)="onButtonClick()">Generate</button>
 <div>
   <label>Generated Password</label>
   <input type="text" [value]="getPassword()">
 </div>
+
+{{useLetters}}
+{{useNumbers}}
+{{useSymbols}}
