@@ -6,20 +6,14 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  password: string
-  includeLetters: boolean;
-  includeNumbers: boolean;
-  includeSymbols: boolean;
-  length: number;
+  password: string = '';
+  includeLetters: boolean = false;
+  includeNumbers: boolean = false;
+  includeSymbols: boolean = false;
+  length: number = 9;
 
 
-  constructor() {
-    this.password = '';
-    this.includeLetters = true;
-    this.includeNumbers = true;
-    this.includeSymbols = true;
-    this.length = 10;
-  }
+
 
   generatePassButtonClick() {
     this.password = 'Password new'
@@ -38,9 +32,6 @@ export class AppComponent {
   }
 
   onChangeLength(event) {
-    const parsedValue = parseInt(event.target.value);
-    if (!isNaN(parsedValue)) {
-      this.length = parsedValue;
-    }
+    this.length = parseInt(event.target.value);
   }
 }
