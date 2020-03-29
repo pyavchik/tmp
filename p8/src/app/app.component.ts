@@ -13,11 +13,6 @@ export class AppComponent {
   private length: number = 9;
 
   onButtonClick() {
-    this.password = "New Password";
-    console.log('useLetters ' + this.useLetters)
-    console.log('useDigits ' + this.useNumbers)
-    console.log('useSymbols ' + this.useSymbols)
-    console.log('Pass lenge ' + this.length)
     const letters = 'abcdefghijklmnopqrstuvwxyz';
     const numbers = '0123456789';
     const symbols = '~!@#$%^&*()_+{}"?><[]'
