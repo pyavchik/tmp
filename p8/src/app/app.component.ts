@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,15 +7,36 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   password = '';
-  private useLetters: boolean = false;
-  private useDigits: boolean = false;
-  private useSymbols: boolean = false;
+  private useLetters: boolean = true;
+  private useNumbers: boolean = true;
+  private useSymbols: boolean = true;
+  private length: number = 9;
 
   onButtonClick() {
     this.password = "New Password";
     console.log('useLetters ' + this.useLetters)
-    console.log('useDigits ' + this.useDigits)
+    console.log('useDigits ' + this.useNumbers)
     console.log('useSymbols ' + this.useSymbols)
+    console.log('Pass lenge ' + this.length)
+    const letters = 'abcdefghijklmnopqrstuvwxyz';
+    const numbers = '0123456789';
+    const symbols = '~!@#$%^&*()_+{}"?><[]'
+    let validChars: string = '';
+    if (this.useLetters){
+      validChars += letters;
+    }
+    if (this.useNumbers){
+      validChars += numbers;
+    }
+    if (this.useSymbols){
+      validChars += symbols;
+    }
+    let generatedPassword = '';
+    for (let i = 0; i < this.length; i++) {
+      let index = Math.floor(Math.random() * validChars.length);
+      generatedPassword += validChars[index];
+    }
+    this.password = generatedPassword;
   }
 
   getPassword() {
@@ -26,11 +47,15 @@ export class AppComponent {
     this.useLetters = !this.useLetters
   }
 
-  useDigitsChange() {
-    this.useDigits = !this.useDigits
+  useNumbersChange() {
+    this.useNumbers = !this.useNumbers
   }
 
   useSymbolsChange() {
     this.useSymbols = !this.useSymbols
+  }
+
+  getInput(event) {
+    this.length = event.target.value;
   }
 }
