@@ -7,15 +7,32 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   password = '';
-  useLetters: boolean = false;
-  useSymbols: boolean = false;
-  useNumbers: boolean = false;
+  useLetters: boolean = true;
+  useSymbols: boolean = true;
+  useNumbers: boolean = true;
+  private length: number = 9;
 
   onButtonClick() {
-    this.password = 'My password';
-    console.log('useLetters ' + this.useLetters);
-    console.log('useSymbols ' + this.useSymbols);
-    console.log('useNumbers ' + this.useNumbers);
+    const letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const numbers = '0123456789';
+    const symbols = '~!@#$%^&*()-=+{}[]<>';
+    let validChars = '';
+    if(this.useLetters){
+      validChars += letters;
+    }
+    if(this.useNumbers){
+      validChars += numbers;
+    }
+    if(this.useSymbols){
+      validChars += symbols;
+    }
+    let generatedPass = ''
+    for (let i = 0; i < this.length; i++) {
+      let index = Math.floor(Math.random() * validChars.length);
+      generatedPass += validChars[index];
+    }
+    this.password = generatedPass;
+
   }
 
   getPassword() {
@@ -32,5 +49,9 @@ export class AppComponent {
 
   onUseNumbers() {
     this.useNumbers = !this.useNumbers;
+  }
+
+  onLengthChanged(event) {
+    this.length = parseInt(event.target.value)
   }
 }
