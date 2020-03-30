@@ -1,0 +1,22 @@
+<h1>Gen pass</h1>
+<div>
+  <label for="">length</label>
+  <input type="text">
+</div>
+<div>
+  <label>Use letters</label>
+  <input (change)="onUseLettersChange()" type="checkbox" [defaultChecked]="true">
+</div>
+<div>
+  <label>Use numbers</label>
+  <input (change)="onUseNumbersChange()" type="checkbox" [defaultChecked]="true">
+</div>
+<div>
+  <label>Use symbols</label>
+  <input (change)="onUsSymbolsChange()" type="checkbox" [defaultChecked]="true">
+</div>
+<div>
+  <button (click)="onButtonClick()" [disabled]="!useSymbols && !useNumbers && !useLetters">Generat</button>
+  <input type="text" [value]="passwrod">
+</div>
+

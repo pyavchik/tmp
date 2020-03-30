@@ -1,8 +1,12 @@
 <h2>Password Generator</h2>
 
 <div>
-  <label>Length</label>
-  <input (input)="onLengthChange($event)">
+  <label>Length2</label>
+  <input
+    (input)="onLengthChange($event)"
+    type="number"
+    onkeydown="return event.keyCode !== 69 && event.keyCode !== 189"
+  >
 </div>
 <div>
   <label>Use Letters</label>
