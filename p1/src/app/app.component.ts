@@ -12,9 +12,17 @@ export class AppComponent {
   includeSymbols: boolean = true;
   length: number = 9;
 
+  constructor() {
+    this.generatePassButtonClick()
+  }
+
 
   generatePassButtonClick() {
-    const letters = 'abcdefghijklmnopqrstuvwxyz'
+    this.newPassGenerate();
+  }
+
+  private newPassGenerate() {
+    const letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHYJKLMNOPQRSTUVWXYZ'
     const numbers = '0123456789'
     const symbols = '!@#$%^&*()_+-'
 
