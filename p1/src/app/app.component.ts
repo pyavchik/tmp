@@ -7,16 +7,38 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   password: string = '';
-  includeLetters: boolean = false;
-  includeNumbers: boolean = false;
-  includeSymbols: boolean = false;
+  includeLetters: boolean = true;
+  includeNumbers: boolean = true;
+  includeSymbols: boolean = true;
   length: number = 9;
 
 
-
-
   generatePassButtonClick() {
-    this.password = 'Password new'
+    const letters = 'abcdefghijklmnopqrstuvwxyz'
+    const numbers = '0123456789'
+    const symbols = '!@#$%^&*()_+-'
+
+    let validChars = ''
+
+    if (this.includeLetters) {
+      validChars += letters;
+    }
+
+    if (this.includeNumbers) {
+      validChars += numbers;
+    }
+
+    if (this.includeSymbols) {
+      validChars += symbols;
+    }
+
+    let generatedPassword = '';
+
+    for (let i = 0; i < this.length; i++) {
+      let index = Math.floor(Math.random() * validChars.length)
+      generatedPassword += validChars[index]
+    }
+    this.password = generatedPassword;
   }
 
   useLettersForPass() {

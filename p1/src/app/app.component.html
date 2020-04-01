@@ -3,39 +3,35 @@
 </div>
 <div>
   <label>Length</label>
-  <input type=""
+  <input type="number"
+   [value]="length"
    (input)="onChangeLength($event)">
 </div>
 <div>
   <label>Letters</label>
   <input
     type="checkbox"
-    checked="checked"
+    [defaultChecked]="true"
     (change)="useLettersForPass()">
 </div>
 <div>
   <label>Numbers</label>
   <input
     type="checkbox"
-    checked="checked"
+    [defaultChecked]="true"
     (change)="useNumbersForPass()">
 </div>
 <div>
   <label>Symbols</label>
   <input
     type="checkbox"
-    checked="checked"
+    [defaultChecked]="true"
     (change)="useSymbolsForPass()">
 </div>
 <div>
-  <button (click)="generatePassButtonClick()">Generate</button>
+  <button [disabled]="!includeSymbols && !includeLetters && !includeNumbers " (click)="generatePassButtonClick()">Generate</button>
   <input
     type="text"
     [value]="password">
 </div>
 
-{{password}}
-{{includeLetters}}
-{{includeNumbers}}
-{{includeSymbols}}
-{{length}}
