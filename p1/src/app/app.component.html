@@ -9,6 +9,7 @@
                class="input"
                (input)="onChangeLength($event)"
                [value]="length"
+               onkeydown="return event.keyCode !==69"
         >
       </div>
 
