@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,13 +6,39 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  password = '';
-  useLetters = false;
-  useSymbols = false;
-  useNumbers = false;
+  password: string = ''
+  useLetters: boolean = true
+  useNumbers: boolean = true
+  useSymbols: boolean = true
+  length: number = 11;
 
   generatePass() {
-    this.password = 'My password';
+    const letters = 'abcdefghijklmnopqrsuvwxyz'
+    const numbers = '0123456789'
+    const symbols = '!@#$%^&*()_+-='
+
+    let validChars = '';
+
+    if (this.useLetters) {
+      validChars += letters
+    }
+
+    if (this.useNumbers) {
+      validChars += numbers
+    }
+
+    if (this.useSymbols) {
+      validChars +=symbols
+    }
+
+    let generatedPassword = ''
+
+    for (let i = 0; i < this.length; i++) {
+      let index = Math.floor(Math.random() * validChars.length)
+      generatedPassword += validChars[index]
+    }
+
+    this.password = generatedPassword;
   }
 
   onLengthChange(event) {

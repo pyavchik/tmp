@@ -1,31 +1,33 @@
-<h2>Password Generator</h2>
-
-<div>
-  <label>Length2</label>
-  <input
-    (input)="onLengthChange($event)"
-    type="number"
-    onkeydown="return event.keyCode !== 69 && event.keyCode !== 189"
-  >
-</div>
-<div>
-  <label>Use Letters</label>
-  <input type="checkbox" (change)="onUseLetters()">
-</div>
-<div>
-  <label>Use Symbols</label>
-  <input type="checkbox" (change)="onUseSymbols()">
-</div>
-<div>
-  <label>Use Numbers</label>
-  <input type="checkbox" (change)="onUseNumber()">
-</div>
-<div>
-  <button (click)="generatePass()">Generate</button>
-</div>
-<input type="text" [value]="password">
-<div>
-  {{useLetters}}
-  {{useSymbols}}
-  {{useNumbers}}
+<div class="container">
+  <div class="columns is-centered">
+    <div class="box column is-one-third">
+      <h2>Password Generator</h2>
+      <div class="field">
+        <label>Length</label>
+        <input
+          (input)="onLengthChange($event)"
+          type="number"
+          onkeydown="return event.keyCode !== 69 && event.keyCode !== 189"
+        >
+      </div>
+      <div class="field">
+        <label>Use Letters</label>
+        <input type="checkbox" (change)="onUseLetters()">
+      </div>
+      <div class="field">
+        <label>Use Symbols</label>
+        <input type="checkbox" (change)="onUseSymbols()">
+      </div>
+      <div class="field">
+        <label>Use Numbers</label>
+        <input type="checkbox" (change)="onUseNumber()">
+      </div>
+      <div>
+        <button (click)="generatePass()">Generate</button>
+      </div>
+      <input type="text" [value]="password">
+      <div>
+      </div>
+    </div>
+  </div>
 </div>
