@@ -34,4 +34,8 @@ export class AppComponent {
   onUseSymbolsChanged() {
     this.useSymbols = !this.useSymbols;
   }
+
+  onLengthChange(event) {
+    console.log(event.target.value)
+  }
 }
