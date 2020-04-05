@@ -62,6 +62,6 @@ export class AppComponent {
   }
 
   onLengthChange(event) {
-    console.log(event.target.value)
+    this.length = parseInt(event.target.value);
   }
 }
