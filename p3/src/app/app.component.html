@@ -8,19 +8,26 @@
           (input)="onLengthChange($event)"
           type="number"
           onkeydown="return event.keyCode !== 69 && event.keyCode !== 189"
+          [value]="length"
         >
       </div>
       <div class="field">
-        <label>Use Letters</label>
-        <input type="checkbox" (change)="onUseLettersChanged()">
+        <label>
+          <input type="checkbox" (change)="onUseLettersChanged()" [defaultChecked]="true">
+          Use Letters
+        </label>
       </div>
       <div class="field">
-        <label>Use Symbols</label>
-        <input type="checkbox" (change)="onUseSymbolsChanged()">
+        <label>
+          <input type="checkbox" (change)="onUseSymbolsChanged()" [defaultChecked]="true">
+          Use Symbols
+        </label>
       </div>
       <div class="field">
-        <label>Use Numbers</label>
-        <input type="checkbox" (change)="onUseNumbersChanged()">
+        <label>
+          <input type="checkbox" (change)="onUseNumbersChanged()" [defaultChecked]="true">
+          Use Numbers
+        </label>
       </div>
       <div>
         <button (click)="onButtonClick()">Generate</button>
