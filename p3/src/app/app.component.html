@@ -1,39 +1,40 @@
 <div class="container">
   <div class="columns is-centered">
     <div class="box column is-one-third">
-      <h2>Password Generator</h2>
+      <h1 class="title has-text-centered">Password Generator</h1>
       <div class="field">
-        <label>Length</label>
-        <input
-          (input)="onLengthChange($event)"
-          type="number"
-          onkeydown="return event.keyCode !== 69 && event.keyCode !== 189"
-          [value]="length"
-        >
+        <label>Length:
+          <input
+            (input)="onLengthChange($event)"
+            type="number"
+            onkeydown="return event.keyCode !== 69 && event.keyCode !== 189"
+            [value]="length"
+          >
+        </label>
       </div>
       <div class="field">
-        <label>
+        <label class="checkbox">
           <input type="checkbox" (change)="onUseLettersChanged()" [defaultChecked]="true">
           Use Letters
         </label>
       </div>
       <div class="field">
-        <label>
+        <label class="checkbox">
           <input type="checkbox" (change)="onUseSymbolsChanged()" [defaultChecked]="true">
           Use Symbols
         </label>
       </div>
       <div class="field">
-        <label>
+        <label class="checkbox">
           <input type="checkbox" (change)="onUseNumbersChanged()" [defaultChecked]="true">
           Use Numbers
         </label>
       </div>
       <div>
-        <button (click)="onButtonClick()">Generate</button>
+        <button class="button is-link is-fullwidth" (click)="onButtonClick()">Generate</button>
       </div>
-      <input type="text" [value]="password">
       <div>
+        <input class="input" type="text" [value]="password">
       </div>
     </div>
   </div>

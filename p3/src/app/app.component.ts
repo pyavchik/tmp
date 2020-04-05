@@ -12,6 +12,10 @@ export class AppComponent {
   useNumbers: boolean = true
   useSymbols: boolean = true
 
+  constructor() {
+    this.onButtonClick()
+  }
+
   onButtonClick() {
     const letters = 'abcdefghijklmnopqrstuvwxyz'
     const numbers = '0123456789'
