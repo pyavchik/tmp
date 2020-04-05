@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,17 +6,39 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  length = 9;
   password = '';
-  useLetters: boolean = false;
-  useNumbers: boolean = false;
-  useSymbols: boolean = false;
+  useLetters: boolean = true
+  useNumbers: boolean = true
+  useSymbols: boolean = true
 
   onButtonClick() {
-    console.log('Generate button clicked');
-    this.password = "My password";
-    console.log(this.useLetters)
-    console.log(this.useNumbers)
-    console.log(this.useSymbols)
+    const letters = 'abcdefghijklmnopqrstuvwxyz'
+    const numbers = '0123456789'
+    const symbols = '!@#$%^&*_-'
+
+    let allCharsForPass = ''
+
+    if (this.useLetters) {
+      allCharsForPass += letters
+    }
+
+    if (this.useNumbers) {
+      allCharsForPass += numbers
+    }
+
+    if (this.useSymbols) {
+      allCharsForPass += symbols
+    }
+
+    let generatedPassword = '';
+
+    for (let i = 0; i < this.length; i++) {
+      let index = Math.floor(Math.random() * allCharsForPass.length)
+      generatedPassword += allCharsForPass[index]
+    }
+
+    this.password = generatedPassword;
   }
 
   getPassword() {
