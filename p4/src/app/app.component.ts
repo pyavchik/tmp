@@ -13,11 +13,7 @@ export class AppComponent {
   private useSymbols: boolean = false;
 
   onButtonClick() {
-    console.log('Generate button clicked');
-    this.password = 'My Pass'
-    console.log('use letters checkbox - ', this.useLetters);
-    console.log('use numbers checkbox - ', this.useNumbers);
-    console.log('use symbols checkbox - ', this.useSymbols);
+    const letters = 'abcdefghijklmnopqrstuvwxyz';
   }
 
   getPassword() {
